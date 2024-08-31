@@ -31,7 +31,7 @@
     
   </script>
 
-  {@debug isLoading, videoUrl, videoData}
+  {@debug isLoading, videoUrl}
   
   <main>
     {#if isLoading}
