@@ -18,24 +18,36 @@
 
 <script>
     import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
     let url = '';
+    let params = null;
     // let startTime = 0;
     // let endTime = 300; // Maximum of 5 mins
     let subtitleStyle = 'karaoke';
     let languages = ['en']; // Default English
 
+    
+    console.log("vid-url script loaded");
+    
+
     function submit() {
+        alert('submit clicked');
         const params = new URLSearchParams({
             url,
             //startTime,
             //endTime,
             subtitleStyle
         });
-        console.log(params);
+        
+        // Log the URL and parameters to the console
+        console.log('Navigating to URL:', url);
+        console.log('Parameters:', params.toString());
+
         // Redirect to the videoplayer with parameters in the query string
-        goto(`/videoplayer/${encodeURIComponent(url)}`);
+        goto(`/videoplayer/${params}`);
     }
 </script>
+
 
 <nav>
     <a href="/">home</a>
@@ -81,6 +93,7 @@
 
 </main>
 
+
 <style>
     main {
       padding: 1rem;
@@ -88,5 +101,7 @@
     input, select, button {
       margin: 0.5rem 0;
     }
-  </style>
+</style>
+
+{@debug params}
   
