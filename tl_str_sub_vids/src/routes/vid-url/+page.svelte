@@ -27,13 +27,13 @@
     function submit() {
         const params = new URLSearchParams({
             url,
-            startTime,
-            endTime,
+            //startTime,
+            //endTime,
             subtitleStyle
         });
-
+        console.log(params);
         // Redirect to the videoplayer with parameters in the query string
-        goto(`/videoplayer/${encodeURIComponent(url)}?${params}`);
+        goto(`/videoplayer/${encodeURIComponent(url)}`);
     }
 </script>
 
@@ -53,7 +53,7 @@
         <option value="karaoke">Karaoke style</option>
         <option value="multilingual">Multilingual Subtitles</option>
     </select>
-    
+
     
     {#if subtitleStyle === 'karaoke'}
         <label for="Select language">Select language:</label>
