@@ -8,20 +8,30 @@
     let videoData = null;
     let subtitles = [];
     let isLoading = true;
+    let videoUrl = null;
+
+    
+    
+    
   
     onMount(async () => {
-      const urlParams = new URLSearchParams(location.search);
+      // const urlParams = new URLSearchParams(location.search);
       // const startTime = urlParams.get('startTime');
       // const endTime = urlParams.get('endTime');
       // const subtitleStyle = urlParams.get('subtitleStyle');
+      
       const videoUrl = decodeURIComponent(params.slug);
-  
+      
       // Fetch subtitles using backend API
       // subtitles = await fetchSubtitles(videoUrl, startTime, endTime, subtitleStyle);
       videoData = { url: videoUrl,};
+      
       isLoading = false;
     });
+    
   </script>
+
+  {@debug isLoading, videoUrl, videoData}
   
   <main>
     {#if isLoading}
