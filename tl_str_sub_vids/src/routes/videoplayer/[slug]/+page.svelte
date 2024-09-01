@@ -12,7 +12,7 @@
     let videoUrl = null;
 
     
-    
+    $: alert(`video url is ${videoData}`);
     
     
   
@@ -23,23 +23,21 @@
       // const subtitleStyle = urlParams.get('subtitleStyle');
       
       const url = urlParams.get('url');
+      alert(`url is ${url}`);
       const videoUrl = decodeURIComponent(params.slug);
       
       // Fetch subtitles using backend API
       // subtitles = await fetchSubtitles(videoUrl, startTime, endTime, subtitleStyle);
       // Call backend API to process video and subtitles
     try {
-      const response = await fetchSubtitles(url);
+      // const response = await fetchSubtitles(url);
       
       videoData = { videoUrl };
       isLoading = false;
     } catch (error) {
       console.error('Error processing video:', error);
       // Handle error (show message to user)
-    }
-      
-      
-      
+    } 
     });
     
   </script>
