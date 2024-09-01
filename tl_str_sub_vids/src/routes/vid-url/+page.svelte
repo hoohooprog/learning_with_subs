@@ -27,8 +27,8 @@
     let languages = ['en']; // Default English
 
     
-    console.log("vid-url script loaded");
-    
+    $: alert(`navigating to url: ${url}`);
+    $: alert(`with params: ${subtitleStyle} & ${languages}`); 
 
     function submit() {
         alert('submit clicked');
@@ -36,7 +36,8 @@
             url,
             //startTime,
             //endTime,
-            subtitleStyle
+            subtitleStyle,
+            languages
         });
         
         // Log the URL and parameters to the console
